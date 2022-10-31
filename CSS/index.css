@@ -1,0 +1,13 @@
+body{
+    background-color: hsla(210, 79%, 31%, 1);
+    
+}
+
+.elijah_standing{
+    background-image: url('..//images/elijah_standing.png');
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-position: right;
+    border: 1em solid red;
+}
