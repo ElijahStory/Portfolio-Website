@@ -1,13 +1,50 @@
-body{
-    background-color: hsla(210, 79%, 31%, 1);
-    
+*{
+    padding: 0;
+    margin: 0;
 }
 
-.elijah_standing{
-    background-image: url('..//images/elijah_standing.png');
-    height: 50vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-position: right;
-    border: 1em solid red;
+body{
+    background-color: hsla(210, 79%, 31%, 1);
+    display: grid;
+    grid-template:
+    '. .' 10vh 
+    'welcome_splash welcome_splash' 90vh
+    'elijah_standing about_me' 90vh
+    'past_projects past_projects' 90vh
+    'contact contact' 90vh
+    / 1fr 1fr
+    ;
+}
+
+#elijah_standing{
+    grid-area: elijah_standing;
+    background-color: blanchedalmond;
+}
+
+#nav_bar{
+    grid-area: nav_bar;
+    position: fixed;
+    width: 100vw;
+    height: 10vh;
+    background-color: blueviolet;
+}
+
+#welcome_splash{
+    grid-area: welcome_splash;
+    background-color: crimson;
+}
+
+#about_me{
+    grid-area: about_me;
+    background-color: chartreuse;
+}
+
+#past_projects{
+    grid-area: past_projects;
+    background-color: cyan;
+}
+
+#contact{
+    grid-area: contact;
+    background-color: green;
 }
