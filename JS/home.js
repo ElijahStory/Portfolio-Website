@@ -16,21 +16,20 @@ const fadeDivs = entries => {
 const moveDivs = entries => {
     entries.forEach(
         entry => {
-            entry.target.childNodes.forEach(
-                child => {
-                    console.log(child.id)
-                    if (child.isIntersecting) {
-                        child.target.classList.add("move");
-                    } else {
-                        child.target.classList.remove("move");
-                    }
+            let children = entry.target.children;
+            for(child in children){
+                if (entry.isIntersecting) {
+                    console.log(entry.isIntersecting)
+                    children[child].classList.add("move");
+                } else {
+                    children[child].classList.remove("move");
                 }
-            )
+            }
         }
     )
 };
 
-let options = {};
+let options = {threshold: 0.0};
 // 4. Fill in the constructor that checks viewport intersection.
 let divObserverFade = new IntersectionObserver(fadeDivs, options);
 document.querySelectorAll(".fade").forEach(
@@ -40,10 +39,10 @@ document.querySelectorAll(".fade").forEach(
     }
 );
 
+options = {threshold: 0.1};
 let divObserverMove = new IntersectionObserver(moveDivs, options);
 document.querySelectorAll(".slide-div").forEach(
     divToMove => {
-        console.log(divToMove.id)
         divObserverMove.observe(divToMove);
     }
 );
