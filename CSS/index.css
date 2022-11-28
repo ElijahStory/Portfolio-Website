@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background-color: hsla(210, 79%, 31%, 1);
     display: flex;
@@ -16,7 +20,18 @@ body{
     background-color: blanchedalmond;
     width: 50%;
     height: 90vh;
-    /* position: relative; */
+    top: 0vh;
+    transition: all 2s ease-out;
+}
+
+#me_image{
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    right: 10%;
+    border-radius: 30px 60px;
+    top: 10%;
+    background-color:rgb(229, 169, 79);
 }
 
 #nav_bar{
@@ -26,11 +41,32 @@ body{
     background-color: blueviolet;
     top: 0px;
     z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.nav_button{
+    padding: 1em;
+    border-radius: 10em;
+    height: 3em;
+    width: 10em;
+    transition: width 1s ease-in-out;
+}
+
+.nav_button.bubble{
+    width: 3em;
+    height: 3em;
+}
+
+.nav_button:hover{
+    background-color: darkgray;
 }
 
 #welcome_splash{
     width: 100%;
     height: 90vh;
+    top: 10vh;
     background-color: crimson;
     position: relative;
 }
@@ -38,6 +74,7 @@ body{
 #about_me{
     width: 50%;
     height: 90vh;
+    top: 10vh;
     background-color: chartreuse;
     /* position: relative; */
 }
@@ -45,6 +82,7 @@ body{
 #past_projects{
     width: 100%;
     height: 90vh;
+    top: 10vh;
     background-color: cyan;
     position: relative;
     order: 2;
@@ -53,13 +91,13 @@ body{
 #contact{
     width: 100vw;
     height: 90vh;
+    top: 10vh;
     background-color: green;
     position: relative;
     order: 3;
 }
 
 .content-div{
-    top: 10vh;
     transition: all 2s ease-out ;
 }
 

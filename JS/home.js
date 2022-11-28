@@ -16,13 +16,22 @@ const fadeDivs = entries => {
 const moveDivs = entries => {
     entries.forEach(
         entry => {
-            let children = entry.target.children;
-            for(child in children){
+            let childrenList = entry.target.children;
+            for(child in childrenList){
                 if (entry.isIntersecting) {
-                    console.log(entry.isIntersecting)
-                    children[child].classList.add("move");
+                    childrenList[child].classList.add("move");
                 } else {
-                    children[child].classList.remove("move");
+                    childrenList[child].classList.remove("move");
+                    try {
+                        let moreChildren = childrenList[child].children;
+                        if(moreChildren.length != 0){
+                            for(innerChild in moreChildren){
+                                moreChildren[innerChild].classList.remove("move");
+                            }
+                        }
+                    } catch (error) {
+                    }
+                    
                 }
             }
         }
@@ -46,3 +55,47 @@ document.querySelectorAll(".slide-div").forEach(
         divObserverMove.observe(divToMove);
     }
 );
+
+function vh(percent) {
+    var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    return (percent * h) / 100;
+  }
+  
+function vw(percent) {
+var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+return (percent * w) / 100;
+}
+
+const scrollPage = (section) => {
+    window.scrollTo(0, vh(90) * section);
+}
+
+var oldScrollY = window.scrollY;
+window.onscroll = function(e) {
+    if(oldScrollY < window.scrollY){
+        updateNavButtons(true);
+    } else {
+        updateNavButtons(false);
+    }
+    oldScrollY = window.scrollY;
+}
+
+const updateNavButtons = (direction) => {
+    let buttons = document.querySelectorAll(".nav_button");
+    let navBar = document.querySelector("#nav_bar");
+    if(direction){
+        navBar.classList.add("bubble");
+        buttons.forEach(
+            button => {
+                button.classList.add("bubble");
+            }
+        )
+    }else{
+        navBar.classList.remove("bubble");
+        buttons.forEach(
+            button => {
+                button.classList.remove("bubble");
+            }
+        )
+    }
+}

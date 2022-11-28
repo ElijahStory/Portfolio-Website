@@ -1,0 +1,5 @@
+import random
+
+def main():
+    # userInput = input("Give a character or enter q to quit: ")
+    print(random.random())
