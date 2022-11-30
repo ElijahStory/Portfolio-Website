@@ -67,18 +67,28 @@ return (percent * w) / 100;
 }
 
 const scrollPage = (section) => {
-    window.scrollTo(0, vh(90) * section);
+    window.scrollTo(0, Math.min(vh(90), vw(90)) * section);
+    if(section == 0){
+        let buttons = document.querySelectorAll(".nav_button");
+        let navBar = document.querySelector("#nav_bar");
+        navBar.classList.remove("bubble");
+        buttons.forEach(
+            button => {
+                button.classList.remove("bubble");
+                let message = document.querySelector(`.${button.id}`).value.split(",");
+                button.innerHTML = message[0];
+            }
+        )
+    }
 }
 
-var oldScrollY = window.scrollY;
-window.onscroll = function(e) {
-    if(oldScrollY < window.scrollY){
-        updateNavButtons(true);
-    } else {
+window.addEventListener("wheel", function(e) {
+    if(e.deltaY < 0){
         updateNavButtons(false);
+    } else if(e.deltaY > 0){
+        updateNavButtons(true);
     }
-    oldScrollY = window.scrollY;
-}
+});
 
 const updateNavButtons = (direction) => {
     let buttons = document.querySelectorAll(".nav_button");
@@ -88,6 +98,8 @@ const updateNavButtons = (direction) => {
         buttons.forEach(
             button => {
                 button.classList.add("bubble");
+                let message = document.querySelector(`.${button.id}`).value.split(",");
+                button.innerHTML = message[1];
             }
         )
     }else{
@@ -95,6 +107,8 @@ const updateNavButtons = (direction) => {
         buttons.forEach(
             button => {
                 button.classList.remove("bubble");
+                let message = document.querySelector(`.${button.id}`).value.split(",");
+                button.innerHTML = message[0];
             }
         )
     }
