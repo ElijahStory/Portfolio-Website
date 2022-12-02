@@ -68,6 +68,10 @@ return (percent * w) / 100;
 
 const scrollPage = (section) => {
     window.scrollTo(0, Math.min(vh(90), vw(90)) * section);
+
+
+
+    
     if(section == 0){
         let buttons = document.querySelectorAll(".nav_button");
         let navBar = document.querySelector("#nav_bar");
