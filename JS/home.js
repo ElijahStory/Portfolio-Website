@@ -117,3 +117,43 @@ const updateNavButtons = (direction) => {
         )
     }
 }
+
+const down = () => {
+    let curSlide = document.querySelector("#cur_slide");
+    let column1Len = document.querySelector("#column1").childElementCount / 2;
+    let column2Len = document.querySelector("#column2").childElementCount / 2;
+    let column3Len = document.querySelector("#column3").childElementCount / 2;
+    let maxLen = Math.max(column1Len, column2Len, column3Len);
+    document.querySelectorAll(".carousel_content").forEach(
+        div => {
+            if(parseInt(curSlide.value) != maxLen - 1){
+                let height = div.parentNode.clientHeight * 0.9;
+                console.log(div.clientHeight );
+                div.style.transform += `translateY(${-height}px)`;
+            }
+        }
+    );
+    if(parseInt(curSlide.value) != maxLen - 1){
+        curSlide.value = parseInt(curSlide.value) + 1;
+    }
+}
+
+const up = () => {
+    let curSlide = document.querySelector("#cur_slide");
+    let column1Len = document.querySelector("#column1").childElementCount / 2;
+    let column2Len = document.querySelector("#column2").childElementCount / 2;
+    let column3Len = document.querySelector("#column3").childElementCount / 2;
+    let maxLen = Math.max(column1Len, column2Len, column3Len);
+    document.querySelectorAll(".carousel_content").forEach(
+        div => {
+            if(parseInt(curSlide.value) != 0){
+                let height = div.parentNode.clientHeight * 0.9;
+                console.log(div.clientHeight );
+                div.style.transform += `translateY(${height}px)`;
+            }
+        }
+    );
+    if(parseInt(curSlide.value) != 0){
+        curSlide.value = parseInt(curSlide.value) - 1;
+    }
+}

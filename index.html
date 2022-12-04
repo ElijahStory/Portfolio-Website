@@ -14,25 +14,76 @@
         <button onclick='scrollPage(3)' id="contact_button" class="nav_button">Contact</button>
         <input value="Contact,&#128231" class="contact_button" type="hidden">
     </div>
-    <div id="welcome_splash" class="content-div fade">
-        welcome_splash
+    <div id="hello_world">
+        Hello World
+        <div class="floor"></div>
     </div>
     <div class="slide-div">
         <div id="elijah_standing" class="slide-div left">
-            elijah_standing
-            <div id="me_image" class="content-div fade left">
-                me_image
-            </div>
+            <div id="me_image" class="content-div fade left"></div>
         </div>
         <div id="about_me" class="content-div right">
             about_me
         </div>
     </div>
     <div id="past_projects" class="content-div fade">
-        past_projects
+        <div onclick="up()" class="arrow up"></div>
+        <div id="carousel">
+            <input type="hidden" id="cur_slide" value="0">
+            <div id="column1">
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content ONE!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content TWO!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content THREE!!!
+                </div>
+            </div>
+            <div id="column2">
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content ONE!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content TWO!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content THREE!!!
+                </div>
+            </div>
+            <div id="column3">
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content ONE!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content TWO!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content THREE!!!
+                </div>
+                <div class="ghost"></div>
+                <div class="carousel_content">
+                    content Four!!!
+                </div>
+            </div>
+        </div>
+        <div onclick="down()" class="arrow down"></div>
     </div>
     <div id="contact" class="content-div fade">
-        contact
+        <p>elijah@kccwest.org</p>
+        <a href="https://github.com/ElijahStory?tab=repositories" target="_blank">GitHub</a>
+        <a href="https://elijahstory108445850.wordpress.com/" target="_blank">Wordpress</a>
+        <a href="./ElijahStory_Resume.pdf" target="_blank">Resume</a>
     </div>
     <script src="JS/home.js"></script>
 </body>
