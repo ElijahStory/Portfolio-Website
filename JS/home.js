@@ -157,3 +157,18 @@ const up = () => {
         curSlide.value = parseInt(curSlide.value) - 1;
     }
 }
+
+document.addEventListener("mousemove", parallax);
+function parallax(event) {
+    this.querySelectorAll(".mouse").forEach((shift) => {
+    const position = shift.getAttribute("value");
+    const x = (window.innerWidth - event.pageX * position) / 90;
+    const y = (window.innerHeight - event.pageY * position) / 90;
+
+    if(shift.classList.contains("floor")){
+        shift.style.transform = `translateX(${x * 0.6}px) translateY(${y * 0.6}px) rotateX(90deg)`;
+    }else{
+        shift.style.transform = `translateX(${x * 1.3}px) translateY(${y * 1.3}px)`;
+    }
+    });
+}
