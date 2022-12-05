@@ -68,10 +68,6 @@ return (percent * w) / 100;
 
 const scrollPage = (section) => {
     window.scrollTo(0, Math.min(vh(90), vw(90)) * section);
-
-
-
-    
     if(section == 0){
         let buttons = document.querySelectorAll(".nav_button");
         let navBar = document.querySelector("#nav_bar");
@@ -166,9 +162,9 @@ function parallax(event) {
     const y = (window.innerHeight - event.pageY * position) / 90;
 
     if(shift.classList.contains("floor")){
-        shift.style.transform = `translateX(${x * 0.6}px) translateY(${y * 0.6}px) rotateX(90deg)`;
+        shift.style.transform = `translateX(${x}px) translateY(${y}px) rotateX(90deg)`;
     }else{
-        shift.style.transform = `translateX(${x * 1.3}px) translateY(${y * 1.3}px)`;
+        shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
     }
     });
 }
