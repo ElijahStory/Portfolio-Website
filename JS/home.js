@@ -158,8 +158,8 @@ document.addEventListener("mousemove", parallax);
 function parallax(event) {
     this.querySelectorAll(".mouse").forEach((shift) => {
     const position = shift.getAttribute("value");
-    const x = (window.innerWidth - event.pageX * position) / 90;
-    const y = (window.innerHeight - event.pageY * position) / 90;
+    const x = ((window.innerWidth/2 - event.pageX) * position) / 90;
+    const y = ((window.innerHeight/2 - event.pageY) * position) / 90;
 
     if(shift.classList.contains("floor")){
         shift.style.transform = `translateX(${x}px) translateY(${y}px) rotateX(90deg)`;
